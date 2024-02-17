@@ -10,7 +10,7 @@ public class Steps {
 
     @Given("user is navigated to login page with url {string}")
     public void userIsNavigatedToLoginPageWithUrl(String url) {
-        System.out.println("Navigated to Guru99 URL");
+        System.out.println("Navigated to Guru99 URL "+url);
     }
 
 
@@ -21,7 +21,7 @@ public class Steps {
 
     @When("user enters customerId as {string} and tab off")
     public void user_enters_customer_id_as_and_tab_off(String value) {
-        System.out.println("User entered value & tabbed off");
+        System.out.println("User entered value & tabbed off "+value);
     }
 
     @Then("error message should be displayed and it should be {string}")
