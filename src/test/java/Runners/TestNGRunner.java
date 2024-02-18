@@ -9,7 +9,6 @@ import io.cucumber.testng.CucumberOptions;
         plugin = {"pretty",
                 "html:target/CucumberReport/report.html",
                 "json:target/CucumberReport/report.json"},
-//        ,tags= "@customer_id_validations",
         monochrome = true
 )
 public class TestNGRunner extends AbstractTestNGCucumberTests {
