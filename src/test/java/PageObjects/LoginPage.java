@@ -10,10 +10,13 @@ public class LoginPage {
     By Username = By.name("uid");
     By Password = By.name("password");
     By LoginBtn = By.name("btnLogin");
+    By scrollingMsg = By.xpath("//tbody/tr[2]/td/marquee");
 
+    //Constructor
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
+
 
     public void setUsername(String uName) {
         driver.findElement(Username).sendKeys(uName);
@@ -25,6 +28,12 @@ public class LoginPage {
 
     public void clickLogin() {
         driver.findElement(LoginBtn).click();
+    }
+
+
+    public boolean verifySuccessfulLogin() {
+        return driver.findElement(scrollingMsg).isDisplayed();
+
     }
 
 }

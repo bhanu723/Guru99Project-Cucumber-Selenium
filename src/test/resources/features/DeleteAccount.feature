@@ -1,6 +1,6 @@
 Feature: Guru99 Testing - Delete Account No Module
 
-  @deleteaccountmodule
+  @deleteaccountmodule @regressionTest
   Scenario Outline: Validation of AccountNo field and valid errors
     Given user is navigated to login page with url "http://demo.guru99.com/V1/"
     And user is logged into guru portal with userName and password
@@ -13,10 +13,10 @@ Feature: Guru99 Testing - Delete Account No Module
       | #!$abc12 | Special characters are not allowed |
       | 1234pqr  | Characters are not allowed         |
 
-
 #  Scenario: Submit with Invalid Invalid CustomerId
 #    Given user is navigated to login page with url "http://demo.guru99.com/V1/"
 #    And user is logged into guru portal with userName and password
 #    When user enters customerId as "123" and tab off
 #    And user click on submit button
 #    Then user is successfully navigated to redirect page without any errors
+
