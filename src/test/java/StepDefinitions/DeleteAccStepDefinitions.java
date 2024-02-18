@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -32,7 +33,6 @@ public class DeleteAccStepDefinitions {
 
         driver.get(url);
     }
-
 
     @And("user is logged into guru portal with userName and password")
     public void userIsLoggedIntoGuruPortalWithUserNameAndPassword() {
@@ -82,5 +82,11 @@ public class DeleteAccStepDefinitions {
         }
 
     }
+
+    @Then("user is successfully navigated to redirect page without any errors")
+    public void userIsSuccessfullyNavigatedToRedirectPageWithoutAnyErrors() {
+        System.out.println("Login is successful");
+    }
+
 
 }
