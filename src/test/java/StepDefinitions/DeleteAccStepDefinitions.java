@@ -25,7 +25,7 @@ public class DeleteAccStepDefinitions {
         opt = new ChromeOptions();
         opt.addArguments("start-maximized");
         opt.setImplicitWaitTimeout(Duration.ofSeconds(5));
-//        opt.addArguments("--headless");
+        opt.addArguments("--headless");
 
         driver = WebDriverManager.chromedriver().capabilities(opt).create();
         deleteAccObj = new DeleteAccountPage(driver);
