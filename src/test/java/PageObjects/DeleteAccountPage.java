@@ -11,7 +11,7 @@ public class DeleteAccountPage {
 
     // All Elements in Delete Account page
 
-    By DeleteAccLink = By.linkText("Delete Customer");
+    By DeleteAccLink = By.linkText("Delete Account");
     By AccountNoTxt = By.xpath("//input[@name='accountno']");
     By SubmitBtn = By.name("AccSubmit");
     By ResetBtn = By.name("res");
