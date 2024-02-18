@@ -25,7 +25,7 @@ public class DeleteAccStepDefinitions {
         opt = new ChromeOptions();
         opt.addArguments("start-maximized");
         opt.setImplicitWaitTimeout(Duration.ofSeconds(5));
-        opt.addArguments("--headless");
+//        opt.addArguments("--headless");
 
         driver = WebDriverManager.chromedriver().capabilities(opt).create();
         deleteAccObj = new DeleteAccountPage(driver);
@@ -48,12 +48,15 @@ public class DeleteAccStepDefinitions {
 
     }
 
+    @Then("user should be logged in successfully without any errors")
+    public void user_should_be_logged_in_successfully_without_any_errors() {
+        loginObj.verifySuccessfulLogin();
+    }
+
 
     @When("user enters Invalid AccountNo as {string} and tab off")
     public void userEntersInvalidAccountNoAsAndTabOff(String value) {
         try {
-            Assert.assertTrue(deleteAccObj.isMessagePresent());
-
             deleteAccObj.clickDeleteAccLink();
             deleteAccObj.setAccountNo(value);
             deleteAccObj.tabOffAccountNo();
@@ -74,7 +77,7 @@ public class DeleteAccStepDefinitions {
             Assert.assertEquals(actual_error, expected_error);
 
         } catch (Exception e) {
-            throw new AssertionError("Exception Occurred during Error validation =>"+e);
+            throw new AssertionError("Exception Occurred during Error validation =>" + e);
 
         } finally {
             driver.close();
@@ -83,10 +86,26 @@ public class DeleteAccStepDefinitions {
 
     }
 
-    @Then("user is successfully navigated to redirect page without any errors")
-    public void userIsSuccessfullyNavigatedToRedirectPageWithoutAnyErrors() {
-        System.out.println("Login is successful");
+
+    @Given("user is already logged In and is on Home page")
+    public void userIsAlreadyLoggedInAndIsOnHomePage() {
+        Assert.assertTrue(deleteAccObj.isMessagePresent());
     }
 
 
+    @And("user click on submit button")
+    public void userClickOnSubmitButton() {
+        deleteAccObj.clickSubmitButton();
+    }
+
+    @Then("error pop up should be displayed")
+    public void errorPopUpShouldBeDisplayed() {
+        try {
+            driver.switchTo().alert().accept();
+
+        } catch (Exception e) {
+            System.out.println(e);
+            throw new AssertionError("No Pop up displayed "+e);
+        }
+    }
 }

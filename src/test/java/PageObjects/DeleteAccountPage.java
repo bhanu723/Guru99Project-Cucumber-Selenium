@@ -3,6 +3,7 @@ package PageObjects;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class DeleteAccountPage {
@@ -49,7 +50,18 @@ public class DeleteAccountPage {
         return driver.findElement(marqueeMsg).isDisplayed();
     }
 
+    public boolean isConnectionErrorElementPresent() {
+        try {
+            if (driver.findElement(ConnectionError).isDisplayed()) ;
+            return true;
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public String getConnectionErrorMsg() {
         return driver.findElement(ConnectionError).getText();
     }
+
 }
